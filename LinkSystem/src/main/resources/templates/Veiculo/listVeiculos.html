@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Busca de veículos</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+		 <script src="https://your-site-or-cdn.com/fontawesome/v6.1.1/js/all.js" ></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+	<div class="container" style="margin-top: 50px;">
+	
+	
+	<h3>Últimos Veículos Adicionados</h3>
+	<hr>
+	<table class="table table-bordered table-hover">
+	
+	<thead>
+	
+		<th scope="col">Código</th>
+		<th scope="col">Placa</th>
+		<th scope="col">Tipo</th>
+		<th scope="col">Modelo</th>
+		<th scope="col">Marca</th>
+		<th scope="col">Cor</th>
+		<th scope="col">Ação</th>
+		
+	</thead>
+	
+	<tbody>
+	
+		<tr scope="row" th:each="veiculo : ${veiculosList}">
+		
+			<td th:text="${veiculo.idVeiculo}"></td>
+			<td th:text="${veiculo.placa}"></td>
+			<td th:text="${veiculo.tipoVeiculo}"></td>
+			<td th:text="${veiculo.modelo}"></td>
+			<td th:text="${veiculo.marca}"></td>
+			<td th:text="${veiculo.cor}"></td>
+						
+			<td>
+			
+				<a class="botaoListMor btn btn-primary " th:href="@{alterarVeiculo/{id} (id=${veiculo.idVeiculo})}">
+					<i class="fas fa-edit"></i>Editar</a>
+					
+				<a class="botaoListMor btn btn-danger" th:href="@{excluirVeiculo/{id} (id=${veiculo.idVeiculo})}">
+					<i class="fas fa-times"></i>Excluir</a>
+			
+			</td>
+		
+		</tr>
+	
+	
+	</tbody>
+	
+	</table>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

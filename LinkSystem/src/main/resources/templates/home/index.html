@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Link System</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body class="index">
+	
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+	<section class="neo-section" style="background-image: url('img/fundositeopaco.jpg');">
+		<div class="sombra"></div>
+	
+	
+		 <div class="center neo-container">
+			<h1 class="texto-centro">Sistema de Controle de Acesso</h1>
+	
+		<div class="botoes">
+		
+			<div class="wm">
+				<a th:href="@{inserirResidencias}" class="btn">CADASTRO DE RESIDÊNCIA</a>
+			</div>
+		
+			<div class="wm">
+				<h5 data-toggle="modal" data-target="#modalPesquisaResidencia" class="btn">PESQUISAR RESIDÊNCIA</h5>
+	    	</div>
+		
+			<div class="wm">
+				<a th:href="@{inserirMoradores}" class="btn">CADASTRO DE MORADOR</a>
+			</div>
+			
+			<div class="wm">
+				<h5 data-toggle="modal" data-target="#modalPesquisaMorador" class="btn">PESQUISAR MORADOR</h5>
+	    	</div>
+	    	
+	    	<div class="wm">
+				<a th:href="@{inserirVeiculos}" class="btn">CADASTRO DE VEÍCULO</a>
+			</div>
+		
+			<div class="wm">
+				<h5 data-toggle="modal" data-target="#modalPesquisaVeiculo" class="btn">PESQUISAR VEÍCULO</h5>
+	    	</div>
+	    	
+			<div class="clear"></div>
+			
+			</div>
+		</div>
+		
+</section>
+
+
+       <!-- INÍCIO DO MODAL DE PESQUISA DE MORADOR  -->
+      <div class="modal fade" id="modalPesquisaMorador">
+      	<div class="modal-dialog modal-lg">
+      		<div class="modal-content">
+      			<div class="modal-header">
+      			
+      				<h5 class="modal-title">Encontre um Morador</h5>
+      				<button type="button" class="close" data-dismiss="modal">
+      					<span>&times;</span>
+      				</button>
+      			
+      			</div>
+      		
+      		<form method="post" action="pesquisar-morador" th:object="${morador}">
+      		
+      		<div class="modal-body">
+      			
+      			<input type="text" placeholder="Digite o nome do Morador ou deixe em branco e clique em pesquisar para visualizar todos" th:field="*{nome}" class="form-control">
+      				
+      		</div>
+      			
+      			<div class="modal-footer">
+      			
+      				<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      				<button type="submit" class="btn btn-sucess">Pesquisar</button>
+      			</div>
+      		
+      		</form>
+      		
+      		
+      		
+      	</div>
+      </div> 
+      
+      
+      
+      </div>
+      
+             <!-- INÍCIO DO MODAL DE PESQUISA DE VEÍCULO -->
+      <div class="modal fade" id="modalPesquisaVeiculo">
+      	<div class="modal-dialog modal-lg">
+      		<div class="modal-content">
+      			<div class="modal-header">
+      			
+      				<h5 class="modal-title">Encontre um Veículo</h5>
+      				<button type="button" class="close" data-dismiss="modal">
+      					<span>&times;</span>
+      				</button>
+      			
+      			</div>
+      		
+      		<form method="post" action="pesquisar-veiculo" th:object="${veiculo}">
+      		
+      		<div class="modal-body">
+      			
+      			<input type="text" placeholder="Digite a placa do veículo ou deixe em branco e clique em pesquisar para visualizar todos" th:field="*{placa}" class="form-control">
+      				
+      		</div>
+      			
+      			<div class="modal-footer">
+      			
+      				<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      				<button type="submit" class="btn btn-sucess">Pesquisar</button>
+      			</div>
+      		
+      		</form>
+      		
+      		
+      		
+      	</div>
+      </div> 
+      
+      
+      
+      </div>
+      
+            <!-- INÍCIO DO MODAL DE PESQUISA DE RESIDÊNCIA -->
+      <div class="modal fade" id="modalPesquisaResidencia">
+      	<div class="modal-dialog modal-lg">
+      		<div class="modal-content">
+      			<div class="modal-header">
+      			
+      				<h5 class="modal-title">Encontre uma Residência</h5>
+      				<button type="button" class="close" data-dismiss="modal">
+      					<span>&times;</span>
+      				</button>
+      			
+      			</div>
+      		
+      		<form method="post" action="pesquisar-residencia" th:object="${residencia}">
+      		
+      		<div class="modal-body">
+      			
+      			<input type="number" placeholder="Digite o número da unidade ou deixe em branco e clique em pesquisar para visualizar todos" th:field="*{numero}" class="form-control">
+      				
+      		</div>
+      			
+      			<div class="modal-footer">
+      			
+      				<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      				<button type="submit" class="btn btn-sucess">Pesquisar</button>
+      			</div>
+      		
+      		</form>
+      		
+      		
+      		
+      	</div>
+      </div> 
+      
+      
+      
+      </div>
+      
+      
+           
+
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

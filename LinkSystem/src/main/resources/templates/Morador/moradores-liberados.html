@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Busca de Moradores Liberados no Sistema</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+		 <script src="https://your-site-or-cdn.com/fontawesome/v6.1.1/js/all.js" ></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+	<div class="container" style="margin-top: 50px;">
+	
+	
+	<h3>Moradores Liberados</h3>
+	<hr>
+	<table class="table table-bordered table-hover">
+	
+	<thead>
+	
+		<th scope="col">Código</th>
+		<th scope="col">Nome</th>
+		<th scope="col">RG</th>
+		<th scope="col">CPF</th>
+		<th scope="col">Email</th>
+		<th scope="col">Telefone</th>
+		<th scope="col">Ramal</th>
+		<th scope="col">Celular</th>
+		<th scope="col">Ação</th>
+		
+	</thead>
+	
+	<tbody>
+	
+		<tr scope="row" th:each="morador : ${moradoresLiberados}">
+		
+			<td th:text="${morador.idMorador}"></td>
+			<td th:text="${morador.nome}"></td>
+			<td th:text="${morador.rg}"></td>
+			<td th:text="${morador.cpf}"></td>
+			<td th:text="${morador.email}"></td>
+			<td th:text="${morador.telefone}"></td>
+			<td th:text="${morador.ramal}"></td>
+			<td th:text="${morador.celular}"></td>
+			
+			<td>
+			
+				<a class="botaoListMor btn btn-primary " th:href="@{alterarMorador/{id} (id=${morador.idMorador})}">
+					<i class="fas fa-edit"></i>Editar</a>
+					
+				<a class="botaoListMor btn btn-danger" th:href="@{excluirMorador/{id} (id=${morador.idMorador})}">
+					<i class="fas fa-times"></i>Excluir</a>
+			
+			</td>
+		
+		</tr>
+	
+	
+	</tbody>
+	
+	</table>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

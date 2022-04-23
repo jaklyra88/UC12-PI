@@ -1,0 +1,41 @@
+@charset "UTF-8";
+ 
+ *{
+ 	margin:0;
+ 	padding:0;
+ 	box-sizing:border-box;
+ }
+.containerCh{
+	overflow: hidden;
+	background-size: cover !important;
+ 	background-position: start;
+ 	background-repeat: no-repeat;
+ 	position: relative;
+ 	
+ }
+ 
+ .row{
+ 
+ margin-left:40px;
+ }
+ 
+ nav{
+ 	height:10vh;
+ 	color:#ffffff;
+ 	text-transform: uppercase;
+ 	
+ 	
+ }
+ 
+   
+ a{ 
+ 	cursor:pointer;
+ 	font-weight:bold; 
+ 	font-size: 0.8em;	
+ 	 	
+ }
+ 
+ a.btn-nav:hover{
+ 	color: #757575;
+ }
+ 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Busca de Residência</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+		 <script src="https://your-site-or-cdn.com/fontawesome/v6.1.1/js/all.js" ></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+	<div class="container" style="margin-top: 50px;">
+	
+	
+	<h3>Últimas Residências Adicionadas</h3>
+	<hr>
+	<table class="table table-bordered table-hover">
+	
+	
+	<thead>
+	
+		<th scope="col">Código</th>
+		<th scope="col">Tipo de Residência</th>
+		<th scope="col">Bloco</th>
+		<th scope="col">Número</th>
+		<th scope="col">Ação</th>
+		
+	</thead>
+	
+	<tbody>
+	
+		<tr scope="row" th:each="residencia : ${residenciasList}">
+		
+			<td th:text="${residencia.idResidencia}"></td>
+			<td th:text="${residencia.tipoResidencia}"></td>
+			<td th:text="${residencia.bloco}"></td>
+			<td th:text="${residencia.numero}"></td>
+						
+			<td>
+			
+				<a class="botaoListMor btn btn-primary " th:href="@{alterarResidencia/{id} (id=${residencia.idResidencia})}">
+					<i class="fas fa-edit"></i>Editar</a>
+					
+				<a class="botaoListMor btn btn-danger" th:href="@{excluirResidencia/{id} (id=${residencia.idResidencia})}">
+					<i class="fas fa-times"></i>Excluir</a>
+			
+			</td>
+		
+		</tr>
+	
+	
+	</tbody>
+	
+	</table>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

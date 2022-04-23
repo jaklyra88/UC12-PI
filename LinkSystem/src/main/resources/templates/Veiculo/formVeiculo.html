@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Cadastro de Veículo</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+		
+			
+		
+	
+        
+      <div class="containerCh" style="margin-top: 20px;">
+      
+      <h4> Cadastrar Veículo</h4>
+      <hr>
+      <br>
+
+	<!--  CAMPOS DA TABELA VEICULO -->
+	<form method="post" action="/insertVeiculo" th:object="${veiculo}">
+
+
+	<!-- CAMPO PLACA -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('placa')}">
+					<label class="validation-message" th:errors="*{placa}"></label>
+				</div>
+				<label>Placa : </label>
+				<input class="form-control" placeholder="Informe a placa do veículo :" th:field="*{placa}">
+			</div>	
+		</div>
+		
+	<!-- CAMPO PLACA -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('morador')}">
+					<label class="validation-message" th:errors="*{morador}"></label>
+				</div>
+				<label>Código do Morador : </label>
+				<input class="form-control" placeholder="Informe o código do morador :" th:field="*{morador}">
+			</div>	
+		</div>
+
+	<!-- TIPO  -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('tipoVeiculo')}">
+					<label class="validation-message" th:errors="*{tipoveiculo}"></label>
+				</div>
+				<label>Selecione o tipo de veículo : </label>
+				<select class="form-control" th:field="*{tipoVeiculo}">
+					<option th:each="tipoVeiculo : ${T(br.com.LinkSystem.Enums.TipoVeiculo).values()}" 
+					th:value="${tipoVeiculo}" th:text="${tipoVeiculo}"></option>
+				</select>
+			</div>	
+		</div>
+	
+		<!-- MARCA  -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('marca')}">
+					<label class="validation-message" th:errors="*{marca}"></label>
+				</div>
+				<label>Selecione a marca do veículo : </label>
+				<select class="form-control" th:field="*{marca}">
+					<option th:each="marca : ${T(br.com.LinkSystem.Enums.Marca).values()}" 
+					th:value="${marca}" th:text="${marca}"></option>
+				</select>
+			</div>	
+		</div>
+		
+		<!-- MODELO -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('modelo')}">
+					<label class="validation-message" th:errors="*{modelo}"></label>
+				</div>
+				<label>Selecione o modelo : </label>
+				<select class="form-control" th:field="*{modelo}">
+					<option th:each="modelo : ${T(br.com.LinkSystem.Enums.Modelo).values()}" 
+					th:value="${modelo}" th:text="${modelo}"></option>
+				</select>
+			</div>	
+		</div>
+		
+		<!-- COR  -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('cor')}">
+					<label class="validation-message" th:errors="*{cor}"></label>
+				</div>
+				<label>Selecione a cor : </label>
+				<select class="form-control" th:field="*{cor}">
+					<option th:each="cor : ${T(br.com.LinkSystem.Enums.Cor).values()}" 
+					th:value="${cor}" th:text="${cor}"></option>
+				</select>
+			</div>	
+		</div>
+	
+
+		
+		
+		<div class="row" >
+			<button type="submit" class="botaoSalvar btn btn-success offset-md-3" style="margin-left:385px;">SALVAR</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a  th:href="@{/}" class="btn btn-outline-danger offset-md-1">VOLTAR</a>
+
+		</div>
+		
+	</form>
+	
+		
+	</div>
+	
+		
+		
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

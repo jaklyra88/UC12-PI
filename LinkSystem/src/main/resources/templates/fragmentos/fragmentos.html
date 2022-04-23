@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Link System</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+
+
+<!-- CABEÇALHO -->
+
+<header th:fragment="cabecalho">
+
+ 
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #CFD8DC ">
+			<a class="navbar-brand" th:href="@{/}">
+				<img src="/img/link.png" width="90px"/>
+			</a>
+		
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+				<span class="navbar-toggler-icon"></span>
+		
+			</button>
+		
+			<div id="navMobile" class="navbar-collapse collapse justify-content-end">
+		
+				<a class="btn-nav nav-item nav-link" th:href="@{/}"><i class="fas fa-home"></i> Home </a>
+				<a class="btn-nav nav-item nav-link" th:href="@{inserirResidencias}"><i class="fas fa-home"></i> Cadastrar Residência </a>
+				<a class="btn-nav nav-item nav-link" th:href="@{inserirMoradores}"><i class="fas fa-user"></i> Cadastrar  Morador </a>
+				<a class="btn-nav nav-item nav-link" th:href="@{inserirVeiculos}"><i class="fas fa-car"></i> Cadastrar Veículo </a>
+				<a class="btn-nav nav-item nav-link" th:href="@{filtroMoradores}"><i class="fas fa-car"></i> Filtro de Moradores </a>
+				
+			</div>
+
+		</nav>
+		
+	</header>
+
+	
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	
+</body>
+</html>

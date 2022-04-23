@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Alterar Morador</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+		
+			
+		
+	
+        
+      <div class="containerCh" style="margin-top: 50px;">
+      
+      <h4> Alterar Morador</h4>
+      <hr>
+      <br>
+
+	<!--  CAMPOS DA TABELA RESIDÊNCIA -->
+	<form method="post" action="/alterarMorador" th:object="${morador}" autocomplete="off">
+
+		<input type="hidden" th:field="*{idMorador}">
+		
+		<!-- CAMPO DESCRIÇÃO -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Nome do Morador : </label>
+				<input class="form-control" placeholder="Informe o nome do morador" th:field="*{nome}">
+			</div>	
+		</div>
+
+		
+		<!-- CAMPO DESCRIÇÃO -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>RG : </label>
+				<input class="form-control" placeholder="Informe o número do RG" th:field="*{rg}">
+			</div>	
+		</div>
+			
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>CPF : </label>
+				<input class="form-control" placeholder="Informe o número do CPF" th:field="*{cpf}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Email : </label>
+				<input class="form-control" placeholder="Informe o email" th:field="*{email}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Telefone : </label>
+				<input class="form-control" placeholder="Informe seu telefone :" th:field="*{telefone}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Ramal : </label>
+				<input class="form-control" placeholder="Ramal" th:field="*{ramal}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Celular : </label>
+				<input class="form-control" placeholder="Informe o número do celular : " th:field="*{celular}">
+			</div>	
+		</div>
+		
+		
+		<!-- CAMPO RESIDENCIA -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Código da Residência : </label>
+				<input class="form-control" placeholder="Informe o código da residência:  " th:field="*{residencia}">
+			</div>	
+		</div>
+				
+		<!-- CAMPO ACESSO  -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Selecione o Status do Acesso : </label>
+				<select class="form-control" th:field="*{acesso}">
+					<option th:each="acesso : ${T(br.com.LinkSystem.Enums.Acesso).values()}" 
+					th:value="${acesso}" th:text="${acesso}"></option>
+				</select>
+			</div>	
+		</div>
+	
+	
+		<div class="row">
+			<button type="submit" class="btn btn-success offset-md-3" style="margin-left:380px;">SALVAR</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="btn btn-outline-danger offset-md-1">VOLTAR</a>
+
+		</div>
+		
+	</form>
+	
+		
+
+	
+		
+		
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

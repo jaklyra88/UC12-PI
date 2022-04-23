@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Cadastro de Residência</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+		
+			
+		
+	
+        
+      <div class="containerCh" style="margin-top: 20px;margin-bottom: 100px;">
+      
+      <h4> Cadastrar Residência</h4>
+      <hr>
+      <br>
+
+	<!--  CAMPOS DA TABELA RESIDENCIA -->
+	<form method="post" action="/insertResidencia" th:object="${residencia}">
+
+<!-- TIPO  -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('tipoResidencia')}">
+					<label class="validation-message" th:errors="*{tipoResidencia}"></label>
+				</div>
+				<label>Selecione o tipo : </label>
+				<select class="form-control" th:field="*{tipoResidencia}">
+					<option th:each="tipoResidencia : ${T(br.com.LinkSystem.Enums.TipoResidencia).values()}" 
+					th:value="${tipoResidencia}" th:text="${tipoResidencia}"></option>
+				</select>
+			</div>	
+		</div>
+	
+		
+		<!-- CAMPO BLOCO -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('bloco')}">
+					<label class="validation-message" th:errors="*{bloco}"></label>
+				</div>
+				<label>Bloco : </label>
+				<input class="form-control" placeholder="Informe o bloco" th:field="*{bloco}">
+			</div>	
+		</div>
+
+		
+		<!-- CAMPO NÚMERO -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('numero')}">
+					<label class="validation-message" th:errors="*{numero}"></label>
+				</div>
+				<label>Número : </label>
+				<input class="form-control" placeholder="Informe o número " th:field="*{numero}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<button type="submit" class="botaoSalvar btn btn-success offset-md-4" style="margin-left:385px;">SALVAR</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a th:href="@{/}" class="btn btn-outline-danger offset-md-1">VOLTAR</a>
+
+		</div>
+		
+	</form>
+	
+		
+	</div>
+	
+		
+		
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

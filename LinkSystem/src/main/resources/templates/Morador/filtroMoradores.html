@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Consulta de Acesso de Morador</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="css/filtro.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+		
+	<div class="containerCh" style="margin-top: 20px;margin-bottom: 100px;">
+      
+      	<h4> Consulta de Acesso de Morador</h4>
+      	<hr>
+      	<br>
+      	
+      	<form method="post">
+      	
+      		<div class="input-group col-6 offset-3">
+      			<input class="form-control" placeholder="Busque pelo nome do Morador.">
+      				<div class="input-group-append">
+      					<button type="submit" class="btn btn-outline-secondary">Pesquisar</button>
+      				</div>
+      		
+      		</div>
+      	
+      	</form>
+    <br>
+      	
+	<hr>
+	<div class="row">
+	
+	<!-- FILTRO DE MORADORES LIBERADOS NO SISTEMA -->
+		<div class="card mt-3 ml-4" style="width: 288px">
+			<a th:href="@{/moradores-liberados}">
+				<img class="card-img-top" src="img/liberado.jpg">
+			</a>
+			
+			<div class="card-body">
+				<h5 class="card-title">Moradores Liberados no Sistema</h5>
+				<p class="card-text">Busque por todos os Moradores que estão liberados no sistema</p>
+				<a th:href="@{/moradores-liberados}" class="btn btn-primary">Clique Aqui!</a>
+			</div>
+		</div>
+		
+		<!-- FILTRO DE MORADORES PENDENTES NO SISTEMA -->
+		
+		<div class="card mt-3 ml-4" style="width: 288px">
+			<a th:href="@{/moradores-pendentes}">
+				<img class="card-img-top mt-3 mb-4" src="img/pendente3.png" style="width:280px;">
+			</a>
+			<div class="card-body">
+				<h5 class="card-title">Moradores pendentes no Sistema</h5>
+				<p class="card-text">Busque por todos os Moradores que estão pendentes no sistema</p>
+				<a th:href="@{/moradores-pendentes}" class="btn btn-primary">Clique Aqui!</a>
+			</div>
+		</div>
+		
+		
+		<!-- FILTRO DE MORADORES BLOQUEADOS NO SISTEMA -->
+		
+		<div class="card mt-3 ml-4" style="width: 288px">
+			<a th:href="@{/moradores-bloqueados}">
+				<img class="card-img-top" src="img/bloqueado.jpg">
+			</a>
+			<div class="card-body">
+				<h5 class="card-title">Moradores bloqueados no Sistema</h5>
+				<p class="card-text">Busque por todos os Moradores que estão bloqueados no sistema</p>
+				<a th:href="@{/moradores-bloqueados}"  class="btn btn-primary">Clique Aqui!</a>
+			</div>
+		</div>
+		
+		<!-- FILTRO DE MORADORES CANCELADOS NO SISTEMA -->
+		
+		<div class="card mt-3 ml-4 " style="width: 288px">
+			<a th:href="@{/moradores-cancelados}">
+				<img class="card-img-top" src="img/cancelado.jpg">
+			</a>
+			<div class="card-body">
+				<h5 class="card-title">Moradores cancelados no Sistema</h5>
+				<p class="card-text">Busque por todos os Moradores que estão cancelados no sistema</p>
+				<a th:href="@{/moradores-cancelados}"  class="btn btn-primary">Clique Aqui!</a>
+			</div>
+		</div>
+		
+		
+		</div>
+	</div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      	
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

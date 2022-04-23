@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Cadastro de Morador</title>
+	<meta name="autor" content="Jakelyne Lyra"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="https://kit.fontawesome.com/0066442858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,400;1,600&family=Ubuntu&family=work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	
+		
+			
+		
+	
+        
+      <div class="containerCh" style="margin-top: 20px;margin-bottom: 100px;">
+      
+      <h4> Cadastrar Morador</h4>
+      <hr>
+      <br>
+
+	<!--  CAMPOS DA TABELA MORADOR -->
+	<form method="post" action="/InsertMorador" th:object="${morador}" autocomplete="off">
+	
+		
+
+	
+		
+		<!-- CAMPO DESCRIÇÃO -->
+		<div class="row">
+			
+			<div class="col-md-6 form-group offset-md-3">
+				<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+					<label class="validation-message" th:errors="*{nome}"></label>
+				</div>
+					<label>Nome do Morador : </label>
+						<input class="form-control" placeholder="Informe o nome do morador" th:field="*{nome}">
+				</div>	
+			</div>
+
+		
+		<!-- CAMPO DESCRIÇÃO -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('rg')}">
+					<label class="validation-message" th:errors="*{rg}"></label>
+				</div>
+				<label>RG : </label>
+				<input class="form-control" placeholder="Informe o número do RG" th:field="*{rg}">
+			</div>	
+		</div>
+			
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('cpf')}">
+					<label class="validation-message" th:errors="*{cpf}"></label>
+				</div>
+				<label>CPF : </label>
+				<input class="form-control" placeholder="Informe o número do CPF" th:field="*{cpf}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+					<label class="validation-message" th:errors="*{email}"></label>
+				</div>
+				<label>Email : </label>
+				<input class="form-control" placeholder="Informe o email" th:field="*{email}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('telefone')}">
+					<label class="validation-message" th:errors="*{telefone}"></label>
+				</div>
+				<label>Telefone : </label>
+				<input class="form-control" placeholder="Informe seu telefone :" th:field="*{telefone}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+					<label>Ramal : </label>
+				<input class="form-control" placeholder="Ramal" th:field="*{ramal}">
+			</div>	
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+				<label>Celular : </label>
+				<input class="form-control" placeholder="Informe o número do celular : " th:field="*{celular}">
+			</div>	
+		</div>
+		
+		
+		<!-- CAMPO RESIDENCIA -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('residencia')}">
+					<label class="validation-message" th:errors="*{residencia}"></label>
+				</div>
+				<label>Código da Residência : </label>
+				<input class="form-control" placeholder="Informe o código da residência:  " th:field="*{residencia}">
+			</div>	
+		</div>
+				
+		<!-- CAMPO ACESSO  -->
+		<div class="row">
+			<div class="col-md-6 form-group offset-md-3">
+			<div class="alert-danger" role="alert" th:if="${#fields.hasErrors('acesso')}">
+					<label class="validation-message" th:errors="*{acesso}"></label>
+				</div>
+				<label>Selecione o Status do Acesso : </label>
+				<select class="form-control" th:field="*{acesso}">
+					<option th:each="acesso : ${T(br.com.LinkSystem.Enums.Acesso).values()}" 
+					th:value="${acesso}" th:text="${acesso}"></option>
+				</select>
+			</div>	
+		</div>
+	
+	
+		<div class="row" style="margin-bottom: 80px;">
+			<button type="submit" class="btn btn-success offset-md-3" style="margin-left:385px;">SALVAR</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a th:href="@{/}" class="btn btn-outline-danger offset-md-1">VOLTAR</a>
+
+		</div>
+		
+	</form>
+	
+		
+
+	
+		
+		
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
